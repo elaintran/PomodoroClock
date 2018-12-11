@@ -1,44 +1,87 @@
 html, body {
-	margin: 0;
-	padding: 0;
-	background-color: #f6605c;
-	font-family: "Open Sans", sans-serif;
-}
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+  background-color: #f6605c; }
 
 .outer-container {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center
-}
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .inner-container {
-	width: 298px;
-	height: 530px;
-	background-color: #f6f6f6;
-	border-radius: 20px;
-	color: #f6605c;
-	box-shadow: 5px 5px 10px rgba(000,000,000,0.1);
-}
+  width: 298px;
+  height: 530px;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  color: #f6605c;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); }
+
+.title-screen {
+  text-align: center; }
+  .title-screen h2 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase; }
 
 .clock {
-	text-align: center;
-	margin: 20px;
-}
+  text-align: center;
+  margin: 20px; }
 
-.clock h5 {
-	text-transform: uppercase;
-	font-weight: bold;
-	letter-spacing: 1.5px;
-	margin: 0 78px;
-	padding: 10px 20px;
-	background-color: #f6605c;
-	color: white;
-	/*border: 1px solid #f6605c;*/
-	border-radius: 20px;
-}
+.advance, .start, .pause, .cancel {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin: 0 78px;
+  padding: 8px 20px;
+  background-color: #f6605c;
+  color: white;
+  border-radius: 20px;
+  border: 1px solid #f6605c; }
 
-.clock h5:hover {
-	cursor: pointer;
-}
+.timer-start {
+  display: flex;
+  justify-content: center; }
+
+.timer {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  border: 3px solid #cfcece;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .timer h2 {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 50px; }
+
+.pause, .cancel {
+  margin: 0 6px;
+  display: none; }
+
+.pause:hover, .start:hover, .cancel:hover, .advance {
+  cursor: pointer; }
+
+.pause {
+  color: #f6605c;
+  font-weight: 600;
+  background-color: transparent;
+  border: 1px solid #f6605c; }
+
+.pause:hover {
+  background-color: #f6605c;
+  color: white; }
+
+h5 {
+  font-size: 12px; }
+
+.advance {
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */

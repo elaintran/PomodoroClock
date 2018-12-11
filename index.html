@@ -14,7 +14,7 @@
 
 	<!-- CSS -->
   	<link rel="stylesheet" href="style.css">
-  	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:100,300" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600|Roboto:100,300" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
@@ -24,9 +24,19 @@
 
 <div class="outer-container">
 	<div class="inner-container">
+		<div class="title-screen">
+			<h2>Pomodoro Timer</h2>
+			<h5 class="advance">Get Started</h5>
+		</div>
 		<div class="clock">
-			<div class="timer"></div>
-			<h5>Start</h5>
+			<div class="timer">
+				<h2>25:00</h2>
+			</div>
+			<h5 class="start">Start</h5>
+			<div class="timer-start">
+				<h5 class="pause" onClick="toggle()">Pause</h5>
+				<h5 class="cancel">Cancel</h5>
+			</div>
 		</div>
 	</div>
 </div>
