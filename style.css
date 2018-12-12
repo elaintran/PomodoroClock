@@ -31,20 +31,25 @@ html, body {
   text-align: center;
   margin: 20px; }
 
-.advance, .start, .pause, .cancel {
+.advance {
+  margin: 30px 78px;
+  text-align: center; }
+
+.advance, .start {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1.5px;
-  margin: 0 78px;
   padding: 8px 20px;
   background-color: #f6605c;
   color: white;
   border-radius: 20px;
   border: 1px solid #f6605c; }
 
-.timer-start {
+.options {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0; }
 
 .timer {
   width: 200px;
@@ -61,27 +66,40 @@ html, body {
     font-family: "Roboto", sans-serif;
     font-size: 50px; }
 
-.pause, .cancel {
-  margin: 0 6px;
-  display: none; }
-
-.pause:hover, .start:hover, .cancel:hover, .advance {
+.advance:hover, .start:hover, .fas:hover {
   cursor: pointer; }
 
-.pause {
-  color: #f6605c;
-  font-weight: 600;
-  background-color: transparent;
-  border: 1px solid #f6605c; }
+.fas {
+  margin: 0 25px;
+  font-size: 16px; }
 
-.pause:hover {
-  background-color: #f6605c;
-  color: white; }
+.sessions {
+  background-color: #cfcece;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px; }
 
 h5 {
   font-size: 12px; }
 
-.advance {
+.session-start {
   display: none; }
+
+.finish {
+  display: none; }
+
+.settings {
+  margin: 0 30px; }
+
+.settings h3 {
+  color: #727272; }
+
+.type {
+  text-align: center; }
+
+.sessions-container {
+  display: flex;
+  justify-content: center; }
 
 /*# sourceMappingURL=style.css.map */

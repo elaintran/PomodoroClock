@@ -1,24 +1,27 @@
 var start = document.querySelector(".start");
-var pause = document.querySelector(".pause");
+var reset = document.querySelector(".reset");
 var cancel = document.querySelector(".cancel");
-
-$(document).ready(function() {
-	$(".start").on("click", function() {
-		$(".start").hide();
-		$(".pause").show();
-		$(".cancel").show();
-	})
-	$(".cancel").on("click", function() {
-		$(".start").show();
-		$(".pause").hide();
-		$(".cancel").hide();
-	})
-});
+var setUp = document.querySelector(".set-up");
+var sessionStart = document.querySelector(".session-start");
+var time = document.querySelector(".time");
 
 function toggle() {
-	if (pause.innerHTML === "Pause") {
-		pause.innerHTML = "Resume";
+	if (start.innerHTML === "Start") {
+		start.innerHTML = "Pause";
+	} else if (start.innerHTML === "Pause") {
+		start.innerHTML = "Resume";
 	} else {
-		pause.innerHTML = "Pause";
+		start.innerHTML = "Pause";
 	}
+}
+
+function nextPage() {
+	setUp.style.display = "none";
+	sessionStart.style.display = "block";
+}
+
+function toIntro() {
+	sessionStart.style.display = "none";
+	setUp.style.display = "block";
+	start.innerHTML = "Start";
 }
