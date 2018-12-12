@@ -33,10 +33,10 @@ html, body {
   margin-top: 60px; }
 
 .advance {
-  margin: 30px 75px;
-  text-align: center; }
+  text-align: center;
+  margin: 20px 35px; }
 
-.advance, .start {
+.button {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;

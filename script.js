@@ -15,9 +15,25 @@ var breakLeft = document.querySelector(".break-time .fa-caret-left");
 var sessionRight = document.querySelector(".session-length .fa-caret-right");
 var sessionLeft = document.querySelector(".session-length .fa-caret-left");
 
+var clearCountdown = 0;
+//var seconds = 1500;
+var breakTime = true;
+var paused = true;
+
+//setinterval stops time
+function resetTime() {
+	clearInterval(clearCountdown);
+	if (start.innerHTML === "Pause" || start.innerHTML === "Resume") {
+		start.innerHTML = "Start";
+	} else {
+		start.innerHTML = "Start";
+	}
+}
+
 function toggle() {
 	if (start.innerHTML === "Start") {
 		start.innerHTML = "Pause";
+		startTimer();
 	} else if (start.innerHTML === "Pause") {
 		start.innerHTML = "Resume";
 	} else {
@@ -35,7 +51,7 @@ function nextPage() {
 	}
 }
 
-//reset numbers and margins
+//reset numbers and margins to default
 function toIntro() {
 	sessionStart.style.display = "none";
 	setUp.style.display = "block";
@@ -147,4 +163,21 @@ function sessionSubtractOne() {
 		sessionRight.style.marginLeft = "30px";
 		sessionLeft.style.marginRight = "30px";
 	}
+}
+
+var seconds = 0;
+var minutes = durationNumber.innerHTML;
+
+//setTimer();
+var handler = function setDurationTimer() {
+	if (--seconds === -1) {
+		seconds = 59;
+		--minutes;
+	}
+	time.innerHTML = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+	console.log(minutes);
+}
+
+function startTimer() {
+	setInterval(handler, 1000);
 }
