@@ -23,50 +23,52 @@ var paused = true;
 //setinterval stops time
 function resetTime() {
 	clearInterval(clearCountdown);
-	if (start.innerHTML === "Pause" || start.innerHTML === "Resume") {
-		start.innerHTML = "Start";
+	if (start.textContent === "Pause" || start.textContent === "Resume") {
+		start.textContent = "Start";
 	} else {
-		start.innerHTML = "Start";
+		start.textContent = "Start";
 	}
 }
 
 function toggle() {
-	if (start.innerHTML === "Start") {
-		start.innerHTML = "Pause";
-		startTimer();
-	} else if (start.innerHTML === "Pause") {
-		start.innerHTML = "Resume";
+	if (start.textContent === "Start") {
+		start.textContent = "Pause";
+		focusTimer();
+	} else if (start.textContent === "Pause") {
+		start.textContent = "Resume";
 	} else {
-		start.innerHTML = "Pause";
+		start.textContent = "Pause";
 	}
 }
 
 function nextPage() {
 	setUp.style.display = "none";
 	sessionStart.style.display = "block";
-	time.innerHTML = durationNumber.innerHTML + ":00";
+	time.textContent = durationNumber.textContent + ":00";
+	//need to fix
 	sessionsContainer.innerHTML = "";
 	for (var i = 0; i < sessionNumber.innerText; i++) {
 		sessionsContainer.innerHTML += "<div class='sessions'></div>";
 	}
+
 }
 
 //reset numbers and margins to default
 function toIntro() {
 	sessionStart.style.display = "none";
 	setUp.style.display = "block";
-	start.innerHTML = "Start";
-	durationNumber.innerHTML = 25;
-	breakNumber.innerHTML = " 5 ";
-	sessionNumber.innerHTML = " 4 ";
-	if (durationNumber.innerHTML <= 9) {
+	start.textContent = "Start";
+	durationNumber.textContent = 25;
+	breakNumber.textContent = " 5 ";
+	sessionNumber.textContent = " 4 ";
+	if (durationNumber.textContent <= 9) {
 		right.style.marginLeft = "34px";
 		left.style.marginRight = "34px";
 	} else {
 		right.style.marginLeft = "30px";
 		left.style.marginRight = "30px";
 	}
-	if (breakNumber.innerHTML < 10) {
+	if (breakNumber.textContent < 10) {
 		breakRight.style.marginLeft = "34px";
 		breakLeft.style.marginRight = "34px";
 	} else {
@@ -76,13 +78,13 @@ function toIntro() {
 }
 
 function durationAddOne() {
-	var plusOne = durationNumber.innerHTML;
+	var plusOne = durationNumber.textContent;
 	plusOne++;
-	durationNumber.innerHTML = plusOne;
-	if (durationNumber.innerHTML >= 40) {
-		durationNumber.innerHTML = 40;
+	durationNumber.textContent = plusOne;
+	if (durationNumber.textContent >= 40) {
+		durationNumber.textContent = 40;
 	}
-	if (durationNumber.innerHTML <= 9) {
+	if (durationNumber.textContent <= 9) {
 		right.style.marginLeft = "34px";
 		left.style.marginRight = "34px";
 	} else {
@@ -92,42 +94,42 @@ function durationAddOne() {
 }
 
 function durationSubtractOne() {
-	var minusOne = durationNumber.innerHTML;
+	var minusOne = durationNumber.textContent;
 	minusOne--;
-	durationNumber.innerHTML = minusOne;
-	if (durationNumber.innerHTML <= 9) {
+	durationNumber.textContent = minusOne;
+	if (durationNumber.textContent <= 9) {
 		right.style.marginLeft = "34px";
 		left.style.marginRight = "34px";
 	} else {
 		right.style.marginLeft = "30px";
 		left.style.marginRight = "30px";
 	}
-	if (durationNumber.innerHTML <= 1) {
-		durationNumber.innerHTML = 1;
+	if (durationNumber.textContent <= 1) {
+		durationNumber.textContent = 1;
 	}
 }
 
 function breakAddOne() {
-	var plusOne = breakNumber.innerHTML;
+	var plusOne = breakNumber.textContent;
 	plusOne++;
-	breakNumber.innerHTML = plusOne;
-	if (breakNumber.innerHTML >= 20) {
-		breakNumber.innerHTML = 20;
+	breakNumber.textContent = plusOne;
+	if (breakNumber.textContent >= 20) {
+		breakNumber.textContent = 20;
 	}
-	if (breakNumber.innerHTML >= 10) {
+	if (breakNumber.textContent >= 10) {
 		breakRight.style.marginLeft = "30px";
 		breakLeft.style.marginRight = "30px";
 	}
 }
 
 function breakSubtractOne() {
-	var minusOne = breakNumber.innerHTML;
+	var minusOne = breakNumber.textContent;
 	minusOne--;
-	breakNumber.innerHTML = minusOne;
-	if (breakNumber.innerHTML <= 1) {
-		breakNumber.innerHTML = 1;
+	breakNumber.textContent = minusOne;
+	if (breakNumber.textContent <= 1) {
+		breakNumber.textContent = 1;
 	}
-	if (breakNumber.innerHTML < 10) {
+	if (breakNumber.textContent < 10) {
 		breakRight.style.marginLeft = "34px";
 		breakLeft.style.marginRight = "34px";
 	} else {
@@ -137,26 +139,26 @@ function breakSubtractOne() {
 }
 
 function sessionAddOne() {
-	var plusOne = sessionNumber.innerHTML;
+	var plusOne = sessionNumber.textContent;
 	plusOne++;
-	sessionNumber.innerHTML = plusOne;
-	if (sessionNumber.innerHTML >= 10) {
-		sessionNumber.innerHTML = 10;
+	sessionNumber.textContent = plusOne;
+	if (sessionNumber.textContentL >= 10) {
+		sessionNumber.textContent = 10;
 	}
-	if (sessionNumber.innerHTML >= 10) {
+	if (sessionNumber.textContent >= 10) {
 		sessionRight.style.marginLeft = "30px";
 		sessionLeft.style.marginRight = "30px";
 	}
 }
 
 function sessionSubtractOne() {
-	var minusOne = sessionNumber.innerHTML;
+	var minusOne = sessionNumber.textContent;
 	minusOne--;
-	sessionNumber.innerHTML = minusOne;
-	if (sessionNumber.innerHTML <= 1) {
-		sessionNumber.innerHTML = 1;
+	sessionNumber.textContent = minusOne;
+	if (sessionNumber.textContent <= 1) {
+		sessionNumber.textContent = 1;
 	}
-	if (sessionNumber.innerHTML < 10) {
+	if (sessionNumber.textContent < 10) {
 		sessionRight.style.marginLeft = "34px";
 		sessionLeft.style.marginRight = "34px";
 	} else {
@@ -165,19 +167,20 @@ function sessionSubtractOne() {
 	}
 }
 
-var seconds = 0;
-var minutes = durationNumber.innerHTML;
-
-//setTimer();
-var handler = function setDurationTimer() {
-	if (--seconds === -1) {
-		seconds = 59;
-		--minutes;
+function focusTimer() {
+	var seconds = 0;
+	var minutes = durationNumber.textContent;
+	var handler = function setDurationTimer() {
+		if (--seconds === -1) {
+			seconds = 59;
+			--minutes;
+		}
+		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+		console.log(minutes);
 	}
-	time.innerHTML = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
-	console.log(minutes);
-}
 
-function startTimer() {
-	setInterval(handler, 1000);
+	function startTimer() {
+		setInterval(handler, 1000);
+	}
+	startTimer();
 }
