@@ -35,10 +35,28 @@ function nextPage() {
 	}
 }
 
+//reset numbers and margins
 function toIntro() {
 	sessionStart.style.display = "none";
 	setUp.style.display = "block";
 	start.innerHTML = "Start";
+	durationNumber.innerHTML = 25;
+	breakNumber.innerHTML = " 5 ";
+	sessionNumber.innerHTML = " 4 ";
+	if (durationNumber.innerHTML <= 9) {
+		right.style.marginLeft = "34px";
+		left.style.marginRight = "34px";
+	} else {
+		right.style.marginLeft = "30px";
+		left.style.marginRight = "30px";
+	}
+	if (breakNumber.innerHTML < 10) {
+		breakRight.style.marginLeft = "34px";
+		breakLeft.style.marginRight = "34px";
+	} else {
+		breakRight.style.marginLeft = "30px";
+		breakLeft.style.marginRight = "30px";
+	}
 }
 
 function durationAddOne() {
@@ -130,9 +148,3 @@ function sessionSubtractOne() {
 		sessionLeft.style.marginRight = "30px";
 	}
 }
-
-//function addOne() {
-//	var plusOne = parseInt(durationNumber);
-//	console.log(durationNumber);
-	//durationNumber.innerHTML = plusOne;
-//}
