@@ -39,14 +39,14 @@ html, body
 	margin: 20px
 
 .advance
-	margin: 30px 78px
+	margin: 30px 75px
 	text-align: center
 
 .advance, .start
 	text-transform: uppercase
 	font-weight: 600
 	letter-spacing: 1.5px
-	padding: 8px 20px
+	padding: 8px 25px
 	background-color: $red
 	color: white
 	border-radius: 20px
@@ -97,10 +97,14 @@ h5
 	display: none
 
 .settings
-	margin: 0 30px
+	margin: 30px
 
-.settings h3
+.settings h4
 	color: $dark-gray
+	text-transform: uppercase
+	letter-spacing: 0.5px
+	font-weight: bold
+	font-size: 12px
 
 .type
 	text-align: center
@@ -108,3 +112,28 @@ h5
 .sessions-container
 	display: flex
 	justify-content: center
+
+.time-toggle
+	text-align: center
+
+.fa-caret-left, .fa-caret-right
+	font-size: 13px
+	&:hover
+		cursor: pointer
+
+.fa-caret-left
+	margin-right: 30px
+
+.fa-caret-right
+	margin-left: 30px
+
+.duration-time, .break-time, .session-length
+	display: flex
+	align-items: center
+	justify-content: center
+
+.break-time .fa-caret-right, .session-length .fa-caret-right
+	margin-left: 34px
+
+.break-time .fa-caret-left, .session-length .fa-caret-left
+	margin-right: 34px
