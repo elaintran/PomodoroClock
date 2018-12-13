@@ -22,7 +22,6 @@ var paused = true;
 
 //setinterval stops time
 function resetTime() {
-	clearInterval(clearCountdown);
 	if (start.textContent === "Pause" || start.textContent === "Resume") {
 		start.textContent = "Start";
 	} else {
@@ -33,12 +32,12 @@ function resetTime() {
 function toggle() {
 	if (start.textContent === "Start") {
 		start.textContent = "Pause";
-		focusTimer();
 	} else if (start.textContent === "Pause") {
 		start.textContent = "Resume";
 	} else {
 		start.textContent = "Pause";
 	}
+	focusTimer();
 }
 
 function nextPage() {
@@ -168,19 +167,23 @@ function sessionSubtractOne() {
 }
 
 function focusTimer() {
-	var seconds = 0;
-	var minutes = durationNumber.textContent;
+	if (time.textContent.substring(2,3) === ":") {
+		var seconds = time.textContent.substring(3,5);
+		var minutes = time.textContent.substring(0,2);
+	} else {
+		var seconds = time.textContent.substring(2,4);
+		var minutes = time.textContent.substring(0,1);
+	}
 	var handler = function setDurationTimer() {
 		if (--seconds === -1) {
 			seconds = 59;
 			--minutes;
 		}
 		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
-		console.log(minutes);
 	}
-
-	function startTimer() {
-		setInterval(handler, 1000);
+	if (start.textContent === "Pause") {
+		clearCountdown = setInterval(handler, 1000);
+	} else if (start.textContent === "Resume") {
+		clearInterval(clearCountdown);
 	}
-	startTimer();
 }
