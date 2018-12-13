@@ -183,6 +183,9 @@ function focusTimer() {
 			--minutes;
 		}
 		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+		if (minutes == 0 && seconds == 0) {
+			clearInterval(clearCountdown);
+		}
 	}
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
@@ -190,7 +193,6 @@ function focusTimer() {
 		clearInterval(clearCountdown);
 	} else if (start.textContent === "Start") {
 		clearInterval(clearCountdown);
-		clearInterval(0);
 		time.textContent = durationNumber.textContent + ":00";
 	}
 }
