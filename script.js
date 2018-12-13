@@ -22,11 +22,13 @@ var paused = true;
 
 //setinterval stops time
 function resetTime() {
+	clearInterval(0);
 	if (start.textContent === "Pause" || start.textContent === "Resume") {
 		start.textContent = "Start";
 	} else {
 		start.textContent = "Start";
 	}
+	focusTimer();
 }
 
 function toggle() {
@@ -74,6 +76,7 @@ function toIntro() {
 		breakRight.style.marginLeft = "30px";
 		breakLeft.style.marginRight = "30px";
 	}
+	focusTimer();
 }
 
 function durationAddOne() {
@@ -185,5 +188,9 @@ function focusTimer() {
 		clearCountdown = setInterval(handler, 1000);
 	} else if (start.textContent === "Resume") {
 		clearInterval(clearCountdown);
+	} else if (start.textContent === "Start") {
+		clearInterval(clearCountdown);
+		clearInterval(0);
+		time.textContent = durationNumber.textContent + ":00";
 	}
 }
