@@ -85,7 +85,7 @@ h5 {
 .finish {
   display: none; }
 
-.settings {
+.settings, .topic {
   margin: 30px; }
 
 .settings h4 {
@@ -134,10 +134,11 @@ h5 {
   .task-input:focus {
     outline: none; }
 
-.settings .setting-title {
+.inner-container .subtitle {
   color: #f6605c;
   text-transform: initial;
-  font-size: 13px; }
+  font-size: 13px;
+  font-weight: bold; }
 
 .row {
   margin-top: 4px; }

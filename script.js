@@ -185,6 +185,7 @@ function focusTimer() {
 		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
 		if (minutes == 0 && seconds == 0) {
 			clearInterval(clearCountdown);
+			alarm.play();
 		}
 	}
 	if (start.textContent === "Pause") {
@@ -211,6 +212,5 @@ function startBreak() {
 	document.body.style.backgroundColor = "#25bc87";
 }*/
 function test() {
-alarm.play();
+	alarm.play();
 }
-test();
