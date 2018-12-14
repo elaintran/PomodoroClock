@@ -35,7 +35,7 @@ html, body {
   margin-top: 60px; }
 
 .advance {
-  margin: 20px 35px; }
+  margin: 25px 35px; }
 
 .button {
   text-transform: uppercase;
@@ -118,5 +118,28 @@ h5 {
 
 .active {
   background-color: #f6605c; }
+
+.break-modal {
+  display: none; }
+
+.task-input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #d5d5d4;
+  padding: 10px 0px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #fafafa;
+  color: #727272; }
+  .task-input:focus {
+    outline: none; }
+
+.settings .setting-title {
+  color: #f6605c;
+  text-transform: initial;
+  font-size: 13px; }
+
+.row {
+  margin-top: 4px; }
 
 /*# sourceMappingURL=style.css.map */

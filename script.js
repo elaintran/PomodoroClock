@@ -14,6 +14,7 @@ var breakRight = document.querySelector(".break-time .fa-caret-right");
 var breakLeft = document.querySelector(".break-time .fa-caret-left");
 var sessionRight = document.querySelector(".session-length .fa-caret-right");
 var sessionLeft = document.querySelector(".session-length .fa-caret-left");
+var alarm = document.querySelector(".alarm");
 
 var clearCountdown = 0;
 //var seconds = 1500;
@@ -50,7 +51,6 @@ function nextPage() {
 	for (var i = 0; i < sessionNumber.innerText; i++) {
 		sessionsContainer.innerHTML += "<div class='sessions'></div>";
 	}
-
 }
 
 //reset numbers and margins to default
@@ -59,8 +59,8 @@ function toIntro() {
 	setUp.style.display = "block";
 	start.textContent = "Start";
 	durationNumber.textContent = 25;
-	breakNumber.textContent = " 5 ";
-	sessionNumber.textContent = " 4 ";
+	breakNumber.textContent = 5;
+	sessionNumber.textContent = 4;
 	if (durationNumber.textContent <= 9) {
 		right.style.marginLeft = "34px";
 		left.style.marginRight = "34px";
@@ -169,6 +169,7 @@ function sessionSubtractOne() {
 }
 
 function focusTimer() {
+	var breakTime = false;
 	if (time.textContent.substring(2,3) === ":") {
 		var seconds = time.textContent.substring(3,5);
 		var minutes = time.textContent.substring(0,2);
@@ -195,3 +196,21 @@ function focusTimer() {
 		time.textContent = durationNumber.textContent + ":00";
 	}
 }
+
+/*function switchBreak() {
+	if (breakTime) {
+		document.body.style.backgroundColor = "#25bc87";
+	} else {
+		document.body.style.backgroundColor = "black";
+	}
+}
+switchBreak();
+
+function startBreak() {
+	time.textContent = breakNumber.textContent + ":00";
+	document.body.style.backgroundColor = "#25bc87";
+}*/
+function test() {
+alarm.play();
+}
+test();
