@@ -4,36 +4,37 @@ html, body {
   font-family: "Open Sans";
   background-color: #f6605c; }
 
-.outer-container {
-  width: 100%;
-  height: 100vh;
+.outer-container, .options, .timer, .duration-time, .break-time, .session-length {
   display: flex;
   align-items: center;
   justify-content: center; }
 
+.title-screen, .clock, .advance, .type, .time-toggle {
+  text-align: center; }
+
+.outer-container {
+  width: 100%;
+  height: 100vh; }
+
 .inner-container {
-  width: 298px;
-  height: 530px;
   background-color: #f6f6f6;
   border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   color: #f6605c;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); }
+  height: 530px;
+  width: 298px; }
 
-.title-screen {
-  text-align: center; }
-  .title-screen h2 {
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    text-transform: uppercase; }
+.title-screen h2 {
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase; }
 
 .clock {
-  text-align: center;
   margin: 20px;
   margin-top: 60px; }
 
 .advance {
-  text-align: center;
   margin: 20px 35px; }
 
 .button {
@@ -47,9 +48,6 @@ html, body {
   border: 1px solid #f6605c; }
 
 .options {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 10px 0; }
 
 .timer {
@@ -58,10 +56,7 @@ html, body {
   border-radius: 50%;
   margin: auto;
   margin-bottom: 20px;
-  border: 3px solid #cfcece;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+  border: 3px solid #cfcece; }
   .timer h2 {
     margin: 0;
     font-family: "Roboto", sans-serif;
@@ -100,15 +95,9 @@ h5 {
   font-weight: bold;
   font-size: 12px; }
 
-.type {
-  text-align: center; }
-
 .sessions-container {
   display: flex;
   justify-content: center; }
-
-.time-toggle {
-  text-align: center; }
 
 .fa-caret-left, .fa-caret-right {
   font-size: 13px; }
@@ -121,15 +110,13 @@ h5 {
 .fa-caret-right {
   margin-left: 30px; }
 
-.duration-time, .break-time, .session-length {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
 .break-time .fa-caret-right, .session-length .fa-caret-right {
   margin-left: 34px; }
 
 .break-time .fa-caret-left, .session-length .fa-caret-left {
   margin-right: 34px; }
+
+.active {
+  background-color: #f6605c; }
 
 /*# sourceMappingURL=style.css.map */

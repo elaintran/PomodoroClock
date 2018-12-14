@@ -18,7 +18,6 @@ var sessionLeft = document.querySelector(".session-length .fa-caret-left");
 var clearCountdown = 0;
 //var seconds = 1500;
 var breakTime = true;
-var paused = true;
 
 //setinterval stops time
 function resetTime() {
