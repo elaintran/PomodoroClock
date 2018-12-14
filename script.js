@@ -15,10 +15,13 @@ var breakLeft = document.querySelector(".break-time .fa-caret-left");
 var sessionRight = document.querySelector(".session-length .fa-caret-right");
 var sessionLeft = document.querySelector(".session-length .fa-caret-left");
 var alarm = document.querySelector(".alarm");
+var taskInput = document.querySelector(".task-input");
+var button = document.querySelector(".button");
+var title = document.querySelector(".title-screen");
 
 var clearCountdown = 0;
 //var seconds = 1500;
-var breakTime = true;
+var breakTime = false;
 
 //setinterval stops time
 function resetTime() {
@@ -58,6 +61,7 @@ function toIntro() {
 	sessionStart.style.display = "none";
 	setUp.style.display = "block";
 	start.textContent = "Start";
+	taskInput.value = "";
 	durationNumber.textContent = 25;
 	breakNumber.textContent = 5;
 	sessionNumber.textContent = 4;
@@ -169,7 +173,6 @@ function sessionSubtractOne() {
 }
 
 function focusTimer() {
-	var breakTime = false;
 	if (time.textContent.substring(2,3) === ":") {
 		var seconds = time.textContent.substring(3,5);
 		var minutes = time.textContent.substring(0,2);
@@ -186,6 +189,11 @@ function focusTimer() {
 		if (minutes == 0 && seconds == 0) {
 			clearInterval(clearCountdown);
 			alarm.play();
+			breakTime = true;
+			if (breakTime) {
+				startBreak();
+				breakTime = false;
+			}
 		}
 	}
 	if (start.textContent === "Pause") {
@@ -207,10 +215,15 @@ function focusTimer() {
 }
 switchBreak();
 
+*/
+
 function startBreak() {
 	time.textContent = breakNumber.textContent + ":00";
 	document.body.style.backgroundColor = "#25bc87";
-}*/
-function test() {
-	alarm.play();
+	start.style.backgroundColor = "#25bc87";
+	title.style.color = "#25bc87";
+	time.style.color = "#25bc87";
+	start.style.borderColor = "#25bc87";
+	reset.style.color = "#25bc87";
+	cancel.style.color = "#25bc87";
 }
