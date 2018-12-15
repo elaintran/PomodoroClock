@@ -18,10 +18,11 @@ var alarm = document.querySelector(".alarm");
 var taskInput = document.querySelector(".task-input");
 var button = document.querySelector(".button");
 var title = document.querySelector(".title-screen");
+var innerContainer = document.querySelector(".inner-container");
 
 var clearCountdown = 0;
 //var seconds = 1500;
-var breakTime = false;
+var breakTime = true;
 
 //setinterval stops time
 function resetTime() {
@@ -65,6 +66,8 @@ function toIntro() {
 	durationNumber.textContent = 25;
 	breakNumber.textContent = 5;
 	sessionNumber.textContent = 4;
+	startFocus();
+	alarm.pause();
 	if (durationNumber.textContent <= 9) {
 		right.style.marginLeft = "34px";
 		left.style.marginRight = "34px";
@@ -186,18 +189,23 @@ function focusTimer() {
 			--minutes;
 		}
 		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
-		if (minutes == 0 && seconds == 0) {
+		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
+			start.textContent = "Stop";
 			alarm.play();
-			breakTime = true;
-			if (breakTime) {
+			/*if (breakTime) {
 				startBreak();
 				breakTime = false;
-			}
+			} else {
+				startFocus();
+			}*/
 		}
 	}
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
+		if (minutes <= 0 && seconds <= 0) {
+			clearInterval(clearCountdown);
+		}
 	} else if (start.textContent === "Resume") {
 		clearInterval(clearCountdown);
 	} else if (start.textContent === "Start") {
@@ -206,24 +214,18 @@ function focusTimer() {
 	}
 }
 
-/*function switchBreak() {
-	if (breakTime) {
-		document.body.style.backgroundColor = "#25bc87";
-	} else {
-		document.body.style.backgroundColor = "black";
-	}
-}
-switchBreak();
-
-*/
-
+//change colors on break
 function startBreak() {
-	time.textContent = breakNumber.textContent + ":00";
+	//time.textContent = breakNumber.textContent + ":00";
 	document.body.style.backgroundColor = "#25bc87";
 	start.style.backgroundColor = "#25bc87";
-	title.style.color = "#25bc87";
-	time.style.color = "#25bc87";
 	start.style.borderColor = "#25bc87";
-	reset.style.color = "#25bc87";
-	cancel.style.color = "#25bc87";
+	innerContainer.style.color = "#25bc87";
+}
+
+//reset colors back to default
+function startFocus() {
+	document.body.removeAttribute("style");
+	start.removeAttribute("style");
+	innerContainer.removeAttribute("style");
 }
