@@ -18,11 +18,11 @@ var alarm = document.querySelector(".alarm");
 var taskInput = document.querySelector(".task-input");
 var button = document.querySelector(".button");
 var title = document.querySelector(".title-screen");
+var active = document.querySelector(".active");
 var innerContainer = document.querySelector(".inner-container");
 
 var clearCountdown = 0;
-//var seconds = 1500;
-var breakTime = true;
+var focusTime = true;
 
 //setinterval stops time
 function resetTime() {
@@ -33,6 +33,7 @@ function resetTime() {
 		start.textContent = "Start";
 	}
 	focusTimer();
+	alarm.pause();
 }
 
 function toggle() {
@@ -40,8 +41,18 @@ function toggle() {
 		start.textContent = "Pause";
 	} else if (start.textContent === "Pause") {
 		start.textContent = "Resume";
-	} else {
+	} else if (start.textContent === "Resume") {
 		start.textContent = "Pause";
+	} else if (start.textContent === "Stop") {
+		start.textContent = "Start";
+		alarm.pause();
+		if (focusTime) {
+			startBreak();
+			focusTime = false;
+		} else {
+			startFocus();
+			focusTime = true;
+		}
 	}
 	focusTimer();
 }
@@ -49,7 +60,11 @@ function toggle() {
 function nextPage() {
 	setUp.style.display = "none";
 	sessionStart.style.display = "block";
-	time.textContent = durationNumber.textContent + ":00";
+	if (durationNumber.textContent < 10) {
+		time.textContent = "0" + durationNumber.textContent + ":00";
+	} else {
+		time.textContent = durationNumber.textContent + ":00";
+	}
 	//need to fix
 	sessionsContainer.innerHTML = "";
 	for (var i = 0; i < sessionNumber.innerText; i++) {
@@ -176,29 +191,24 @@ function sessionSubtractOne() {
 }
 
 function focusTimer() {
-	if (time.textContent.substring(2,3) === ":") {
-		var seconds = time.textContent.substring(3,5);
-		var minutes = time.textContent.substring(0,2);
+	if (time.textContent.substring(0,2) === "00" && time.textContent.substring(3,4) === ":") {
+		var minutes = time.textContent.substring(1,3);
+		var seconds = time.textContent.substring(4,7);
 	} else {
-		var seconds = time.textContent.substring(2,4);
-		var minutes = time.textContent.substring(0,1);
+		var minutes = time.textContent.substring(0,2);
+		var seconds = time.textContent.substring(3,5);
 	}
 	var handler = function setDurationTimer() {
 		if (--seconds === -1) {
 			seconds = 59;
 			--minutes;
 		}
-		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+		time.textContent = (minutes < 10 && time.textContent.substring(0,2) !== "00" ? "0" + minutes: minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+		console.log(minutes);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
 			start.textContent = "Stop";
 			alarm.play();
-			/*if (breakTime) {
-				startBreak();
-				breakTime = false;
-			} else {
-				startFocus();
-			}*/
 		}
 	}
 	if (start.textContent === "Pause") {
@@ -210,22 +220,36 @@ function focusTimer() {
 		clearInterval(clearCountdown);
 	} else if (start.textContent === "Start") {
 		clearInterval(clearCountdown);
-		time.textContent = durationNumber.textContent + ":00";
+		if (!focusTime) {
+			if (breakNumber.textContent < 10) {
+				time.textContent = "0" + breakNumber.textContent + ":00";
+			} else {
+				time.textContent = breakNumber.textContent + ":00";
+			}
+		} else {
+			if (durationNumber.textContent < 10) {
+				time.textContent = "0" + durationNumber.textContent + ":00";
+			} else {
+				time.textContent = durationNumber.textContent + ":00";
+			}
+		}
 	}
 }
 
 //change colors on break
 function startBreak() {
-	//time.textContent = breakNumber.textContent + ":00";
 	document.body.style.backgroundColor = "#25bc87";
 	start.style.backgroundColor = "#25bc87";
 	start.style.borderColor = "#25bc87";
 	innerContainer.style.color = "#25bc87";
+	//active.style.backgroundColor = "#25bc87";
 }
 
 //reset colors back to default
 function startFocus() {
+	time.textContent = durationNumber.textContent + ":00";
 	document.body.removeAttribute("style");
 	start.removeAttribute("style");
 	innerContainer.removeAttribute("style");
+	//active.removeAttribute("style");
 }
