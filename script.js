@@ -34,6 +34,7 @@ function resetTime() {
 	}
 	focusTimer();
 	alarm.pause();
+	alarm.currentTime = 0;
 }
 
 function toggle() {
@@ -46,6 +47,7 @@ function toggle() {
 	} else if (start.textContent === "Stop") {
 		start.textContent = "Start";
 		alarm.pause();
+		alarm.currentTime = 0;
 		if (focusTime) {
 			startBreak();
 			focusTime = false;
@@ -83,6 +85,7 @@ function toIntro() {
 	sessionNumber.textContent = 4;
 	startFocus();
 	alarm.pause();
+	alarm.currentTime = 0;
 	if (durationNumber.textContent <= 9) {
 		right.style.marginLeft = "34px";
 		left.style.marginRight = "34px";
