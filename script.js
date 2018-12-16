@@ -191,10 +191,7 @@ function sessionSubtractOne() {
 }
 
 function focusTimer() {
-	if (time.textContent.substring(0,2) === "00" && time.textContent.substring(3,4) === ":") {
-		var minutes = time.textContent.substring(1,3);
-		var seconds = time.textContent.substring(4,7);
-	} else {
+	if (time.textContent.length === 5) {
 		var minutes = time.textContent.substring(0,2);
 		var seconds = time.textContent.substring(3,5);
 	}
@@ -202,14 +199,18 @@ function focusTimer() {
 		if (--seconds === -1) {
 			seconds = 59;
 			--minutes;
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
 		}
-		time.textContent = (minutes < 10 && time.textContent.substring(0,2) !== "00" ? "0" + minutes: minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+		time.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
 		console.log(minutes);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
 			start.textContent = "Stop";
 			alarm.play();
 		}
+
 	}
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
