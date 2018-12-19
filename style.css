@@ -82,9 +82,6 @@ h5 {
 .session-start {
   display: none; }
 
-.finish {
-  display: none; }
-
 .settings, .topic {
   margin: 30px; }
 
@@ -141,8 +138,10 @@ h5 {
 .row {
   margin-top: 4px; }
 
-.timer-text .type {
-  text-transform: uppercase;
-  margin: 5px; }
+.set-up {
+  display: none; }
+
+.finish {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
