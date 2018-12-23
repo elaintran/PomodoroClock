@@ -168,7 +168,7 @@ function sessionAddOne() {
 	var plusOne = sessionNumber.textContent;
 	plusOne++;
 	sessionNumber.textContent = plusOne;
-	if (sessionNumber.textContentL >= 10) {
+	if (sessionNumber.textContent >= 10) {
 		sessionNumber.textContent = 10;
 	}
 	if (sessionNumber.textContent >= 10) {
