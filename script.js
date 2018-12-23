@@ -20,6 +20,7 @@ var button = document.querySelector(".button");
 var title = document.querySelector(".title-screen");
 var active = document.querySelector(".active");
 var innerContainer = document.querySelector(".inner-container");
+var styleElem = document.head.appendChild(document.createElement("style"));
 
 var clearCountdown = 0;
 var focusTime = true;
@@ -247,6 +248,7 @@ function startBreak() {
 	start.style.backgroundColor = "#25bc87";
 	start.style.borderColor = "#25bc87";
 	innerContainer.style.color = "#25bc87";
+	styleElem.innerHTML = ".sp:before, .sp:after {background: #25bc87;} .sp1:after {background: #f6f6f6;} .sp1:before {background: inherit;}";
 	//active.style.backgroundColor = "#25bc87";
 }
 
