@@ -258,5 +258,6 @@ function startFocus() {
 	document.body.removeAttribute("style");
 	start.removeAttribute("style");
 	innerContainer.removeAttribute("style");
+	styleElem.innerHTML = "";
 	//active.removeAttribute("style");
 }
