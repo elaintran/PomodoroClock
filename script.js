@@ -80,6 +80,7 @@ function toIntro() {
 	setUp.style.display = "block";
 	start.textContent = "Start";
 	taskInput.value = "";
+	focusTime = true;
 	durationNumber.textContent = 25;
 	breakNumber.textContent = 5;
 	sessionNumber.textContent = 4;
