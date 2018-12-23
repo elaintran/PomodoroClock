@@ -142,4 +142,42 @@ h5 {
   text-align: center;
   display: none; }
 
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  .outer-container {
+    background-color: #f6f6f6; }
+
+  .inner-container {
+    border-radius: 0;
+    height: 100vh;
+    width: 100%; }
+    .inner-container .subtitle {
+      font-size: 16px; }
+
+  .title-screen h2 {
+    font-size: 16px;
+    margin-top: 30px; }
+
+  .settings {
+    margin: 30px 50px 50px 50px; }
+    .settings h4 {
+      font-size: 15px; }
+
+  .task-input {
+    font-size: 16px; }
+
+  .button {
+    padding: 9px 25px; }
+
+  h5 {
+    font-size: 14px; }
+
+  .timer {
+    width: 300px;
+    height: 300px; }
+    .timer h2 {
+      font-size: 70px; }
+
+  .fas {
+    font-size: 20px; } }
+
 /*# sourceMappingURL=style.css.map */
