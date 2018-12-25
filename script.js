@@ -20,6 +20,7 @@ var button = document.querySelector(".button");
 var title = document.querySelector(".title-screen");
 var active = document.querySelector(".active");
 var innerContainer = document.querySelector(".inner-container");
+var nextPanel = document.querySelector(".next-panel");
 var styleElem = document.head.appendChild(document.createElement("style"));
 
 var clearCountdown = 0;
@@ -62,7 +63,7 @@ function toggle() {
 
 function nextPage() {
 	setUp.style.display = "none";
-	sessionStart.style.display = "block";
+	nextPanel.style.display = "block";
 	if (durationNumber.textContent < 10) {
 		time.textContent = "0" + durationNumber.textContent + ":00";
 	} else {
@@ -77,7 +78,7 @@ function nextPage() {
 
 //reset numbers and margins to default
 function toIntro() {
-	sessionStart.style.display = "none";
+	nextPanel.style.display = "none";
 	setUp.style.display = "block";
 	start.textContent = "Start";
 	taskInput.value = "";

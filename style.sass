@@ -12,7 +12,7 @@ html, body
 	font-family: "Open Sans"
 	background-color: $red
 
-.outer-container, .options, .timer, .duration-time, .break-time, .session-length
+.outer-container, .options, .timer, .duration-time, .break-time, .session-length, .next-panel
 	display: flex
 	align-items: center
 	justify-content: center
@@ -39,10 +39,6 @@ html, body
 		font-weight: bold
 		text-transform: uppercase
 
-.clock
-	margin: 20px
-	margin-top: 60px
-
 .advance
 	margin: 25px 35px
 
@@ -58,6 +54,11 @@ html, body
 
 .options
 	margin: 10px 0
+
+.next-panel
+	width: 100%
+	height: 100%
+	display: none
 
 .timer
 	margin-bottom: 20px
@@ -84,9 +85,6 @@ html, body
 
 h5 
 	font-size: 12px
-
-.session-start
-	display: none
 
 .settings, .topic
 	margin: 30px
@@ -148,37 +146,6 @@ h5
 	text-align: center
 	display: none
 
-@media only screen and (min-device-width : 375px) and (max-device-width : 812px)
-	html, body
-		background-color: $off-white
-	.inner-container
-		border-radius: 0
-		height: 100vh
-		width: 100%
-		.subtitle
-			font-size: 16px
-	.title-screen
-		h2
-			font-size: 16px
-			margin-top: 30px
-	.settings
-		margin: 30px 50px 50px 50px
-		h4
-			font-size: 15px
-	.task-input
-		font-size: 16px
-	.button
-		padding: 9px 25px
-	h5
-		font-size: 14px
-	.timer
-		h2
-			font-size: 70px
-	.fas
-		font-size: 20px
-
-
-
 .sp1
 	position: relative
 	width: 200px
@@ -196,9 +163,9 @@ h5
 	background-color: $red
 
 .sp1:after
-	width: 90%
-	height: 90%
-	margin: 5%
+	width: 94%
+	height: 94%
+	margin: 3%
 	border-radius: 50%
 	background-color: $off-white
 	z-index: 6
@@ -312,3 +279,38 @@ h5
 	100%
 		transform: rotate(180deg)
 		opacity: 1
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px)
+	html, body
+		background-color: $off-white
+	.inner-container
+		border-radius: 0
+		height: 100vh
+		width: 100%
+		.subtitle
+			font-size: 16px
+	.title-screen
+		h2
+			font-size: 16px
+			margin-top: 30px
+	.settings
+		margin: 30px 50px 50px 50px
+		h4
+			font-size: 15px
+	.task-input
+		font-size: 16px
+	.button
+		padding: 9px 25px
+	h5
+		font-size: 14px
+	.timer
+		h2
+			font-size: 70px
+	.sessions
+		width: 15px
+		height: 15px
+	.fas
+		font-size: 20px
+	.sp1
+		width: 270px
+		height: 270px
