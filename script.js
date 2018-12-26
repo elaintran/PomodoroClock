@@ -63,7 +63,7 @@ function toggle() {
 
 function nextPage() {
 	setUp.style.display = "none";
-	nextPanel.style.display = "block";
+	nextPanel.style.display = "flex";
 	if (durationNumber.textContent < 10) {
 		time.textContent = "0" + durationNumber.textContent + ":00";
 	} else {
