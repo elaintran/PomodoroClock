@@ -221,10 +221,12 @@ function focusTimer() {
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
 		var totalSeconds = time.textContent.substring(0,2) * 60;
-		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear;} .sp2:after {animation: spin2 " + totalSeconds + "s linear;}";
+		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear; animation-fill-mode: forwards;} .sp2:after {animation: spin2 " + totalSeconds + "s linear; animation-fill-mode: forwards;}";
 		styleElem.prepend(animation);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
+			//var fill = ".sp2:before, .sp2:after {animation-fill-mode: forwards;}";
+			//styleElem.prepend(fill);
 		}
 	} else if (start.textContent === "Resume") {
 		clearInterval(clearCountdown);
