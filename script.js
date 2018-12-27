@@ -220,6 +220,9 @@ function focusTimer() {
 	}
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
+		var totalSeconds = time.textContent.substring(0,2) * 60;
+		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear;} .sp2:after {animation: spin2 " + totalSeconds + "s linear;}";
+		styleElem.prepend(animation);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
 		}
