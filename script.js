@@ -218,18 +218,22 @@ function focusTimer() {
 		}
 
 	}
+	//press start
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
-		var totalSeconds = time.textContent.substring(0,2) * 60;
-		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear; animation-fill-mode: forwards;} .sp2:after {animation: spin2 " + totalSeconds + "s linear; animation-fill-mode: forwards;}";
+		var totalSeconds = minutes * 60;
+		styleElem.prepend("");
+		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear; animation-fill-mode: forwards; animation-play-state: running;} .sp2:after {animation: spin2 " + totalSeconds + "s linear; animation-fill-mode: forwards; animation-play-state: running;}";
 		styleElem.prepend(animation);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
-			//var fill = ".sp2:before, .sp2:after {animation-fill-mode: forwards;}";
-			//styleElem.prepend(fill);
 		}
+	//press pause
 	} else if (start.textContent === "Resume") {
 		clearInterval(clearCountdown);
+		var animationPause = ".sp2:before, .sp2:after {animation-play-state: paused;}";
+		styleElem.append(animationPause);
+	//press reset
 	} else if (start.textContent === "Start") {
 		clearInterval(clearCountdown);
 		if (!focusTime) {
