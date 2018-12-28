@@ -221,9 +221,14 @@ function focusTimer() {
 	//press start
 	if (start.textContent === "Pause") {
 		clearCountdown = setInterval(handler, 1000);
-		var totalSeconds = minutes * 60;
-		styleElem.prepend("");
-		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear; animation-fill-mode: forwards; animation-play-state: running;} .sp2:after {animation: spin2 " + totalSeconds + "s linear; animation-fill-mode: forwards; animation-play-state: running;}";
+		if (focusTime) {
+			var totalSeconds = (durationNumber.textContent * 60);
+		} else if (!focusTime) {
+			var totalSeconds = (breakNumber.textContent * 60);
+		}
+		//console.log(totalSeconds);
+		styleElem.innerHTML = "";
+		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear; animation-fill-mode: forwards; animation-play-state: running; animation-delay: 1s} .sp2:after {animation: spin2 " + totalSeconds + "s linear; animation-fill-mode: forwards; animation-play-state: running; animation-delay: 1s}";
 		styleElem.prepend(animation);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
@@ -258,7 +263,8 @@ function startBreak() {
 	start.style.backgroundColor = "#25bc87";
 	start.style.borderColor = "#25bc87";
 	innerContainer.style.color = "#25bc87";
-	styleElem.innerHTML = ".sp:before, .sp:after {background: #25bc87;} .sp1:after {background: #f6f6f6;} .sp1:before {background: inherit;}";
+	var animationBreak = ".sp:before, .sp:after {background: #25bc87;} .sp1:after {background: #f6f6f6;} .sp1:before {background: inherit;}";
+	styleElem.append(animationBreak);
 	//active.style.backgroundColor = "#25bc87";
 }
 
