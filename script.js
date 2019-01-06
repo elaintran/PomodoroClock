@@ -25,6 +25,8 @@ var styleElem = document.head.appendChild(document.createElement("style"));
 
 var clearCountdown = 0;
 var focusTime = true;
+var count = 0;
+var newCount = 1;
 
 //setinterval stops time
 function resetTime() {
@@ -75,6 +77,8 @@ function nextPage() {
 	for (var i = 0; i < sessionNumber.innerText; i++) {
 		sessionsContainer.innerHTML += "<div class='sessions'></div>";
 	}
+	var sessionActive = document.querySelectorAll(".sessions")[0];
+	sessionActive.classList.add("active");
 }
 
 //reset numbers and margins to default
@@ -216,12 +220,13 @@ function focusTimer() {
 			clearInterval(clearCountdown);
 			start.textContent = "Stop";
 			alarm.play();
+			newCount += count;
+			console.log(newCount);
 		}
-
 	}
 	//press start
 	if (start.textContent === "Pause") {
-		setDurationTimer();
+		//setDurationTimer();
 		clearCountdown = setInterval(setDurationTimer, 1000);
 		styleElem.innerHTML = "";
 		if (focusTime) {
