@@ -27,6 +27,7 @@ var clearCountdown = 0;
 var focusTime = true;
 var count = 0;
 var newCount = 1;
+var sessionActive;
 
 //setinterval stops time
 function resetTime() {
@@ -77,8 +78,9 @@ function nextPage() {
 	for (var i = 0; i < sessionNumber.innerText; i++) {
 		sessionsContainer.innerHTML += "<div class='sessions'></div>";
 	}
-	var sessionActive = document.querySelectorAll(".sessions")[0];
+	sessionActive = document.querySelectorAll(".sessions")[0];
 	sessionActive.classList.add("active");
+	//return sessionActive;
 }
 
 //reset numbers and margins to default
@@ -272,7 +274,7 @@ function startBreak() {
 	start.style.backgroundColor = "#25bc87";
 	start.style.borderColor = "#25bc87";
 	innerContainer.style.color = "#25bc87";
-	//active.style.backgroundColor = "#25bc87";
+	sessionActive.style.backgroundColor = "#25bc87";
 }
 
 //reset colors back to default
@@ -282,5 +284,5 @@ function startFocus() {
 	start.removeAttribute("style");
 	innerContainer.removeAttribute("style");
 	styleElem.innerHTML = "";
-	//active.removeAttribute("style");
+	sessionActive.removeAttribute("style");
 }
