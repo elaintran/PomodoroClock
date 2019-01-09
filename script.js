@@ -252,6 +252,8 @@ function focusTimer() {
 	//press reset
 	} else if (start.textContent === "Start") {
 		clearInterval(clearCountdown);
+		var animationReset = ".sp2:before, .sp2:after {animation: none;}";
+		styleElem.append(animationReset);
 		if (!focusTime) {
 			if (breakNumber.textContent < 10) {
 				time.textContent = "0" + breakNumber.textContent + ":00";
