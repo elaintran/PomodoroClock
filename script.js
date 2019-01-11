@@ -22,6 +22,8 @@ var active = document.querySelector(".active");
 var innerContainer = document.querySelector(".inner-container");
 var nextPanel = document.querySelector(".next-panel");
 var styleElem = document.head.appendChild(document.createElement("style"));
+var taskComplete = document.querySelector(".task-complete");
+var advance = document.querySelectorAll(".advance")[1];
 
 var clearCountdown = 0;
 var focusTime = true;
@@ -276,7 +278,9 @@ function startBreak() {
 	start.style.backgroundColor = "#25bc87";
 	start.style.borderColor = "#25bc87";
 	innerContainer.style.color = "#25bc87";
-	sessionActive.style.backgroundColor = "#25bc87";
+	advance.style.backgroundColor = "#25bc87";
+	advance.style.borderColor = "#25bc87";
+	//sessionActive.style.backgroundColor = "#25bc87";
 }
 
 //reset colors back to default
@@ -288,3 +292,7 @@ function startFocus() {
 	styleElem.innerHTML = "";
 	sessionActive.removeAttribute("style");
 }
+
+//function completion {
+	taskComplete.textContent = "You have completed the following task: " + taskInput.value;
+//}

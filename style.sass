@@ -74,10 +74,10 @@ html, body
 		position: absolute
 		z-index: 100000
 
-.advance:hover, .start:hover, .fas:hover
+.advance:hover, .start:hover, .fa-undo:hover, .fa-times:hover
 	cursor: pointer
 
-.fas
+.fa-undo, .fa-times
 	margin: 0 25px
 	font-size: 16px
 
@@ -149,7 +149,16 @@ h5
 
 .finish
 	text-align: center
-	display: none
+	display: flex
+	align-items: center
+	height: 100%
+	margin: 0 20px
+	h3
+		margin: 0
+
+.fa-award
+	font-size: 125px
+	margin: 20px 0px
 
 .sp1
 	position: relative
@@ -287,8 +296,11 @@ h5
 		width: 15px
 		height: 15px
 		margin: 5px
-	.fas
+	.fa-undo, .fa-times
 		font-size: 20px
 	.sp1
 		width: 270px
 		height: 270px
+
+.set-up
+	display: none
