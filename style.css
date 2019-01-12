@@ -143,13 +143,24 @@ h5 {
   display: flex;
   align-items: center;
   height: 100%;
-  margin: 0 20px; }
+  margin: 0 20px;
+  display: none; }
+  .finish .finish-container {
+    margin: auto; }
   .finish h3 {
-    margin: 0; }
+    margin: 0;
+    font-weight: bold; }
+  .finish h4 {
+    color: #727272;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 18px; }
 
 .fa-award {
   font-size: 125px;
-  margin: 20px 0px; }
+  margin-bottom: 25px; }
 
 .sp1 {
   position: relative;
@@ -295,7 +306,5 @@ h5 {
   .sp1 {
     width: 270px;
     height: 270px; } }
-.set-up {
-  display: none; }
 
 /*# sourceMappingURL=style.css.map */
