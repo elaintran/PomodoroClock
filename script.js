@@ -68,21 +68,26 @@ function toggle() {
 }
 
 function nextPage() {
-	setUp.style.display = "none";
-	nextPanel.style.display = "flex";
-	if (durationNumber.textContent < 10) {
-		time.textContent = "0" + durationNumber.textContent + ":00";
-	} else {
-		time.textContent = durationNumber.textContent + ":00";
+	if (taskInput.value === "") {
+		return false
 	}
-	//need to fix
-	sessionsContainer.innerHTML = "";
-	for (var i = 0; i < sessionNumber.innerText; i++) {
-		sessionsContainer.innerHTML += "<div class='sessions'></div>";
+	else {
+		setUp.style.display = "none";
+		nextPanel.style.display = "flex";
+		if (durationNumber.textContent < 10) {
+			time.textContent = "0" + durationNumber.textContent + ":00";
+		} else {
+			time.textContent = durationNumber.textContent + ":00";
+		}
+		//need to fix
+		sessionsContainer.innerHTML = "";
+		for (var i = 0; i < sessionNumber.innerText; i++) {
+			sessionsContainer.innerHTML += "<div class='sessions'></div>";
+		}
+		sessionActive = document.querySelectorAll(".sessions")[0];
+		sessionActive.classList.add("active");
+		//return sessionActive;
 	}
-	sessionActive = document.querySelectorAll(".sessions")[0];
-	sessionActive.classList.add("active");
-	//return sessionActive;
 }
 
 //reset numbers and margins to default
@@ -296,3 +301,10 @@ function startFocus() {
 //function completion {
 	taskComplete.textContent = "You have completed the following task: " + taskInput.value;
 //}
+
+/*
+if (taskInput.value === "") {
+	return false;
+} else {
+	
+}*/
