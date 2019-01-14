@@ -305,6 +305,12 @@ h5 {
 
   .sp1 {
     width: 270px;
-    height: 270px; } }
+    height: 270px; }
+
+  .finish h3 {
+    font-size: 30px; }
+  .finish h4 {
+    font-size: 18px;
+    line-height: 25px; } }
 
 /*# sourceMappingURL=style.css.map */
