@@ -68,6 +68,7 @@ function toggle() {
 }
 
 function nextPage() {
+	//prevents submission if task input is empty
 	if (taskInput.value === "") {
 		return false
 	}
@@ -301,10 +302,3 @@ function startFocus() {
 //function completion {
 	taskComplete.textContent = "You have completed the following task: " + taskInput.value;
 //}
-
-/*
-if (taskInput.value === "") {
-	return false;
-} else {
-	
-}*/
