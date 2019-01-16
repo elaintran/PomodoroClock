@@ -70,6 +70,7 @@ function toggle() {
 function nextPage() {
 	//prevents submission if task input is empty
 	if (taskInput.value === "") {
+		//taskInput.style.borderColor = "#f6605c";
 		return false
 	}
 	else {
