@@ -192,7 +192,8 @@ h5 {
 
 .sp2:before {
   z-index: 4;
-  -webkit-transform-origin: 100% 50%;
+  -webkit-tranform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
   -ms-transform-origin: 100% 50%;
   transform-origin: 100% 50%; }
 
@@ -200,7 +201,8 @@ h5 {
   opacity: 0;
   right: 0;
   z-index: 6;
-  -webkit-transform-origin: 0 50%;
+  -webkit-tranform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
   -ms-transform-origin: 0 50%;
   transform-origin: 0 50%; }
 
