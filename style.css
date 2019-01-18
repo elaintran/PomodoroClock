@@ -1,32 +1,32 @@
-@-webkit-keyframes spin1 {
+@-webkit-keyframes rotate1 {
   0% {
     transform: rotate(0deg); }
   50% {
     transform: rotate(180deg); }
   100% {
     transform: rotate(180deg); } }
-@-moz-keyframes spin1 {
+@-moz-keyframes rotate1 {
   0% {
     transform: rotate(0deg); }
   50% {
     transform: rotate(180deg); }
   100% {
     transform: rotate(180deg); } }
-@-ms-keyframes spin1 {
+@-ms-keyframes rotate1 {
   0% {
     transform: rotate(0deg); }
   50% {
     transform: rotate(180deg); }
   100% {
     transform: rotate(180deg); } }
-@keyframes spin1 {
+@keyframes rotate1 {
   0% {
     transform: rotate(0deg); }
   50% {
     transform: rotate(180deg); }
   100% {
     transform: rotate(180deg); } }
-@-webkit-keyframes spin2 {
+@-webkit-keyframes rotate2 {
   0% {
     transform: rotate(0deg);
     opacity: 0; }
@@ -38,7 +38,7 @@
   100% {
     transform: rotate(180deg);
     opacity: 1; } }
-@-moz-keyframes spin2 {
+@-moz-keyframes rotate2 {
   0% {
     transform: rotate(0deg);
     opacity: 0; }
@@ -50,7 +50,7 @@
   100% {
     transform: rotate(180deg);
     opacity: 1; } }
-@-ms-keyframes spin2 {
+@-ms-keyframes rotate2 {
   0% {
     transform: rotate(0deg);
     opacity: 0; }
@@ -62,7 +62,7 @@
   100% {
     transform: rotate(180deg);
     opacity: 1; } }
-@keyframes spin2 {
+@keyframes rotate2 {
   0% {
     transform: rotate(0deg);
     opacity: 0; }
@@ -79,6 +79,9 @@ html, body {
   padding: 0;
   font-family: "Open Sans";
   background-color: #f6605c; }
+
+h5 {
+  font-size: 12px; }
 
 .outer-container, .options, .timer, .duration-time, .break-time, .session-length, .next-panel {
   display: flex;
@@ -154,9 +157,6 @@ html, body {
   width: 10px;
   height: 10px;
   margin: 0 4px; }
-
-h5 {
-  font-size: 12px; }
 
 .settings, .topic {
   margin: 30px; }
@@ -238,7 +238,14 @@ h5 {
   font-size: 125px;
   margin-bottom: 25px; }
 
-.sp1 {
+.clock:before, .clock:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: #f6605c; }
+
+.spin-one {
   position: relative;
   width: 200px;
   height: 200px;
@@ -247,14 +254,11 @@ h5 {
   border-radius: 50%;
   z-index: 1; }
 
-.sp:before, .sp:after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  background-color: #f6605c; }
+.spin-one:before {
+  background-color: inherit;
+  z-index: 5; }
 
-.sp1:after {
+.spin-one:after {
   width: 94%;
   height: 94%;
   margin: 3%;
@@ -262,18 +266,14 @@ h5 {
   background-color: #f6f6f6;
   z-index: 6; }
 
-.sp1:before {
-  background-color: inherit;
-  z-index: 5; }
-
-.sp2:before {
+.spin-two:before {
   z-index: 4;
   -webkit-tranform-origin: 100% 50%;
   -moz-transform-origin: 100% 50%;
   -ms-transform-origin: 100% 50%;
   transform-origin: 100% 50%; }
 
-.sp2:after {
+.spin-two:after {
   opacity: 0;
   right: 0;
   z-index: 6;
@@ -326,7 +326,7 @@ h5 {
   .fa-undo, .fa-times {
     font-size: 20px; }
 
-  .sp1 {
+  .spin-one {
     width: 270px;
     height: 270px; }
 

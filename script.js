@@ -244,11 +244,11 @@ function focusTimer() {
 			var totalSeconds = (durationNumber.textContent * 60);
 		} else if (!focusTime) {
 			var totalSeconds = (breakNumber.textContent * 60);
-			var animationBreak = ".sp:before, .sp:after {background: #25bc87;} .sp1:after {background: #f6f6f6;} .sp1:before {background: inherit;}";
+			var animationBreak = ".clock:before, .clock:after {background: #25bc87;} .spin-one:after {background: #f6f6f6;} .spin-one:before {background: inherit;}";
 			styleElem.append(animationBreak);
 		}
 		//console.log(totalSeconds);
-		var animation = ".sp2:before {animation: spin1 " + totalSeconds + "s linear;} .sp2:after {animation: spin2 " + totalSeconds + "s linear;} .sp2:before, .sp2:after {animation-fill-mode: forwards; animation-play-state: running;}";
+		var animation = ".spin-two:before {animation: rotate1 " + totalSeconds + "s linear;} .spin-two:after {animation: rotate2 " + totalSeconds + "s linear;} .spin-two:before, .spin-two:after {animation-fill-mode: forwards; animation-play-state: running;}";
 		styleElem.prepend(animation);
 		if (minutes <= 0 && seconds <= 0) {
 			clearInterval(clearCountdown);
@@ -256,12 +256,12 @@ function focusTimer() {
 	//press pause
 	} else if (start.textContent === "Resume") {
 		clearInterval(clearCountdown);
-		var animationPause = ".sp2:before, .sp2:after {animation-play-state: paused;}";
+		var animationPause = ".spin-two:before, .spin-two:after {animation-play-state: paused;}";
 		styleElem.append(animationPause);
 	//press reset
 	} else if (start.textContent === "Start") {
 		clearInterval(clearCountdown);
-		var animationReset = ".sp2:before, .sp2:after {animation: none;}";
+		var animationReset = ".spin-two:before, .spin-two:after {animation: none;}";
 		styleElem.append(animationReset);
 		if (!focusTime) {
 			if (breakNumber.textContent < 10) {

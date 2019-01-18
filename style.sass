@@ -16,7 +16,7 @@ $shadow: 5px 5px 10px rgba(000,000,000,0.1)
 	@keyframes #{$keyframe}
 		@content
 
-@include keyframes (spin1)
+@include keyframes (rotate1)
 	0%
 		transform: rotate(0deg)
 	50%
@@ -24,7 +24,7 @@ $shadow: 5px 5px 10px rgba(000,000,000,0.1)
 	100%
 		transform: rotate(180deg)
 
-@include keyframes (spin2)
+@include keyframes (rotate2)
 	0%
 		transform: rotate(0deg)
 		opacity: 0
@@ -48,6 +48,9 @@ html, body
 	padding: 0
 	font-family: "Open Sans"
 	background-color: $red
+
+h5 
+	font-size: 12px
 
 .outer-container, .options, .timer, .duration-time, .break-time, .session-length, .next-panel
 	display: flex
@@ -124,9 +127,6 @@ html, body
 	width: 10px
 	height: 10px
 	margin: 0 4px
-
-h5 
-	font-size: 12px
 
 .settings, .topic
 	margin: 30px
@@ -208,7 +208,14 @@ h5
 	font-size: 125px
 	margin-bottom: 25px
 
-.sp1
+.clock:before, .clock:after
+	content: ''
+	position: absolute
+	height: 100%
+	width: 50%
+	background-color: $red
+
+.spin-one
 	position: relative
 	width: 200px
 	height: 200px
@@ -217,14 +224,11 @@ h5
 	border-radius: 50%
 	z-index: 1
 
-.sp:before, .sp:after
-	content: ''
-	position: absolute
-	height: 100%
-	width: 50%
-	background-color: $red
+.spin-one:before
+	background-color: inherit
+	z-index: 5
 
-.sp1:after
+.spin-one:after
 	width: 94%
 	height: 94%
 	margin: 3%
@@ -232,15 +236,11 @@ h5
 	background-color: $off-white
 	z-index: 6
 
-.sp1:before
-	background-color: inherit
-	z-index: 5
-
-.sp2:before
+.spin-two:before
 	z-index: 4
 	@include transform-origin(100% 50%)
 
-.sp2:after
+.spin-two:after
 	opacity: 0
 	right: 0
 	z-index: 6
@@ -282,7 +282,7 @@ h5
 		margin: 5px
 	.fa-undo, .fa-times
 		font-size: 20px
-	.sp1
+	.spin-one
 		width: 270px
 		height: 270px
 	.finish
