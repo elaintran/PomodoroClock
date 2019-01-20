@@ -287,7 +287,7 @@ function startBreak() {
 	innerContainer.style.color = "#25bc87";
 	advance.style.backgroundColor = "#25bc87";
 	advance.style.borderColor = "#25bc87";
-	//sessionActive.style.backgroundColor = "#25bc87";
+	sessionActive.style.backgroundColor = "#25bc87";
 }
 
 //reset colors back to default
