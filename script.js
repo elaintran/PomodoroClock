@@ -298,6 +298,8 @@ function startFocus() {
 	innerContainer.removeAttribute("style");
 	styleElem.innerHTML = "";
 	sessionActive.removeAttribute("style");
+	count++;
+	document.querySelectorAll(".sessions")[count].classList.add("active");
 }
 
 //function completion {
