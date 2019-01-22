@@ -121,6 +121,7 @@ function toIntro() {
 	focusTime = true;
 	taskInput.removeAttribute("style");
 	exclamation.removeAttribute("style");
+	checkmark.removeAttribute("style");
 	//resets to 0 when startFocus is called
 	count = -1;
 	durationNumber.textContent = 25;
