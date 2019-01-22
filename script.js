@@ -24,11 +24,13 @@ var nextPanel = document.querySelector(".next-panel");
 var styleElem = document.head.appendChild(document.createElement("style"));
 var taskComplete = document.querySelector(".task-complete");
 var advance = document.querySelectorAll(".advance")[1];
+var finish = document.querySelector(".finish");
+var exclamation = document.querySelector(".fa-exclamation-circle");
+var checkmark = document.querySelector(".fa-check-circle");
 
 var clearCountdown = 0;
 var focusTime = true;
 var count = 0;
-var newCount = 1;
 var sessionActive;
 
 //setinterval stops time
@@ -62,15 +64,32 @@ function toggle() {
 			startFocus();
 			focusTime = true;
 		}
+		if (count == sessionNumber.textContent) {
+			startBreak();
+			completion();
+		}
 		styleElem.innerHTML = "";
 	}
 	focusTimer();
 }
 
+function checkTyping() {
+	if (taskInput.value === "") {
+		taskInput.style.borderColor = "#f6605c";
+		exclamation.style.display = "block";
+		checkmark.removeAttribute("style");
+	} else {
+		taskInput.removeAttribute("style");
+		exclamation.removeAttribute("style");
+		checkmark.style.display = "block";
+	}
+}
+
 function nextPage() {
 	//prevents submission if task input is empty
 	if (taskInput.value === "") {
-		//taskInput.style.borderColor = "#f6605c";
+		taskInput.style.borderColor = "#f6605c";
+		exclamation.style.display = "block";
 		return false
 	}
 	else {
@@ -95,10 +114,15 @@ function nextPage() {
 //reset numbers and margins to default
 function toIntro() {
 	nextPanel.style.display = "none";
+	finish.style.display = "none";
 	setUp.style.display = "block";
 	start.textContent = "Start";
 	taskInput.value = "";
 	focusTime = true;
+	taskInput.removeAttribute("style");
+	exclamation.removeAttribute("style");
+	//resets to 0 when startFocus is called
+	count = -1;
 	durationNumber.textContent = 25;
 	breakNumber.textContent = 5;
 	sessionNumber.textContent = 4;
@@ -231,8 +255,6 @@ function focusTimer() {
 			clearInterval(clearCountdown);
 			start.textContent = "Stop";
 			alarm.play();
-			newCount += count;
-			console.log(newCount);
 		}
 	}
 	//press start
@@ -287,7 +309,13 @@ function startBreak() {
 	innerContainer.style.color = "#25bc87";
 	advance.style.backgroundColor = "#25bc87";
 	advance.style.borderColor = "#25bc87";
-	sessionActive.style.backgroundColor = "#25bc87";
+	for (var j = 0; j < count + 1; j++) {
+		if (document.querySelectorAll(".sessions")[j] === undefined) {
+			return false;
+		} else {
+			document.querySelectorAll(".sessions")[j].style.backgroundColor = "#25bc87";
+		}
+	}
 }
 
 //reset colors back to default
@@ -299,9 +327,23 @@ function startFocus() {
 	styleElem.innerHTML = "";
 	sessionActive.removeAttribute("style");
 	count++;
-	document.querySelectorAll(".sessions")[count].classList.add("active");
+	console.log(count);
+	if (count == sessionNumber.textContent) {
+		return false;
+	} else {
+		document.querySelectorAll(".sessions")[count].classList.add("active");
+	}
+	for (var k = 0; k < count + 1; k++) {
+		if (document.querySelectorAll(".sessions")[k] === undefined) {
+			return false;
+		} else {
+			document.querySelectorAll(".sessions")[k].removeAttribute("style");
+		}
+	}
 }
 
-//function completion {
+function completion() {
+	finish.style.display = "flex";
+	nextPanel.style.display = "none";
 	taskComplete.textContent = "You have completed the following task: " + taskInput.value;
-//}
+}
