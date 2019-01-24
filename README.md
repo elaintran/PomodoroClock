@@ -11,3 +11,9 @@
 
 ### DEVELOPMENT PROCESS
 <p>Currently in progress. Check back later.</p>
+
+### FUTURE UPDATES
+<ul>
+  <li>Play alarm on mobile.</li>
+  <li>Sync animation with timer.</li>
+</ul>
